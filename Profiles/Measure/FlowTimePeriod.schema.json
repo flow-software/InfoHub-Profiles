@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "FlowTimePeriod.schema.json",
+  "title": "Flow Time Period",
+  "description": "Profile — Time period block. Defines the reporting time window for the measure values.",
+  "type": "object",
+  "properties": {
+    "$comment": {
+      "type": "string",
+      "const": "Time period — defines the reporting window for the values"
+    },
+    "$namespace": {
+      "type": "string",
+      "description": "Profile namespace URI for this building block"
+    },
+    "start": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Period start in ISO 8601 format (UTC)"
+    },
+    "end": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Period end in ISO 8601 format (UTC)"
+    },
+    "startUnix": {
+      "type": "integer",
+      "description": "Period start as Unix timestamp (seconds since epoch)"
+    },
+    "endUnix": {
+      "type": "integer",
+      "description": "Period end as Unix timestamp (seconds since epoch)"
+    },
+    "timeScheme": {
+      "type": "string",
+      "description": "Time scheme name (e.g. Calendar, Fiscal)"
+    },
+    "timeSchemeShift": {
+      "type": ["string", "null"],
+      "description": "Time scheme shift identifier"
+    }
+  },
+  "required": ["$namespace", "start", "end"]
+}
