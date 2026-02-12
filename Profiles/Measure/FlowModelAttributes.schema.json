@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "FlowModelAttributes.schema.json",
+  "title": "Flow Model Attributes",
+  "description": "Profile — Model attributes block. Contains contextual metadata from the data model hierarchy. Properties are dynamic key-value pairs defined by the data model.",
+  "type": "object",
+  "properties": {
+    "$comment": {
+      "type": "string",
+      "const": "Model attributes — contextual metadata from the data model hierarchy"
+    },
+    "$namespace": {
+      "type": "string",
+      "description": "Profile namespace URI for this building block"
+    }
+  },
+  "additionalProperties": {
+    "type": "string",
+    "description": "Model attribute value — key is the attribute name, value is the attribute value"
+  },
+  "required": ["$namespace"]
+}
