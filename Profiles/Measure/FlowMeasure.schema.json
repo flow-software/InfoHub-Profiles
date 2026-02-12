@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "FlowMeasure.schema.json",
+  "title": "Flow Measure",
+  "description": "Profile — Measure identification block. Defines the measure being reported including its name, unit of measure, and API endpoints for data retrieval.",
+  "type": "object",
+  "properties": {
+    "$comment": {
+      "type": "string",
+      "const": "Measure definition — identifies the measure being reported"
+    },
+    "$namespace": {
+      "type": "string",
+      "description": "Profile namespace URI for this building block"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the measure"
+    },
+    "id": {
+      "type": "integer",
+      "description": "Unique identifier for the measure"
+    },
+    "uom": {
+      "type": "string",
+      "description": "Unit of measure (e.g. kWh, MW, degC)"
+    },
+    "description": {
+      "type": "string",
+      "description": "Human-readable description of the measure"
+    },
+    "intervalType": {
+      "type": "string",
+      "description": "The interval type (e.g. Hourly, Daily, Monthly, Tag, Timestamp)"
+    },
+    "hierarchicalName": {
+      "type": "string",
+      "description": "Fully qualified hierarchical name (e.g. Parent.Child.MeasureName)"
+    },
+    "parent": {
+      "type": "string",
+      "description": "Parent node name in the data model hierarchy"
+    },
+    "format": {
+      "type": "string",
+      "description": "Display format string for the measure value"
+    },
+    "measureDataApiEndpoint": {
+      "type": "string",
+      "format": "uri",
+      "description": "API endpoint URL to retrieve measure data (without attributes)"
+    },
+    "measureDataApiEndpointWithAttributes": {
+      "type": "string",
+      "format": "uri",
+      "description": "API endpoint URL to retrieve measure data (with attributes)"
+    }
+  },
+  "required": ["$namespace", "name", "id"]
+}
