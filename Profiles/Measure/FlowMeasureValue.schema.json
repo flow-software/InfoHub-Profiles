@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "FlowMeasureValue.schema.json",
+  "title": "Flow Measure Value",
+  "description": "Profile — Individual measure value block. Represents a single data point with optional attribute breakdown.",
+  "type": "object",
+  "properties": {
+    "$comment": {
+      "type": "string",
+      "const": "Measure value — a single data point with optional attribute breakdown"
+    },
+    "$namespace": {
+      "type": "string",
+      "description": "Profile namespace URI for this building block"
+    },
+    "value": {
+      "type": ["number", "null"],
+      "description": "The numeric measure value"
+    },
+    "quality": {
+      "type": "integer",
+      "description": "OPC quality code for the value (e.g. 192 = Good)"
+    },
+    "formattedValue": {
+      "type": "string",
+      "description": "The measure value formatted according to the measure's display format"
+    },
+    "duration": {
+      "type": "number",
+      "description": "Duration associated with this value (in seconds)"
+    },
+    "attribute": {
+      "type": "string",
+      "description": "Event attribute name (present only when event attributes exist)"
+    },
+    "attributeValue": {
+      "type": "string",
+      "description": "Event attribute value (present only when event attributes exist)"
+    }
+  },
+  "required": ["$namespace", "value", "quality"]
+}
