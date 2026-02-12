@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "FlowMeasureValueData.schema.json",
+  "title": "Flow Measure Value Data",
+  "description": "Profile — Root composite schema for measure value data. Composes Measure, TimePeriod, MeasureValue, and ModelAttributes building blocks into a single payload. One message is published per time period with all measure values aggregated into the values array.",
+  "type": "object",
+  "properties": {
+    "$comment": {
+      "type": "string",
+      "const": "Flow Software CESMII SM Profile - Measure Value Data"
+    },
+    "$namespace": {
+      "type": "string",
+      "description": "Root profile namespace URI"
+    },
+    "measure": {
+      "$ref": "FlowMeasure.schema.json",
+      "description": "Measure identification — identifies the measure being reported"
+    },
+    "timePeriod": {
+      "$ref": "FlowTimePeriod.schema.json",
+      "description": "Time period — defines the reporting window for the values"
+    },
+    "values": {
+      "type": "array",
+      "items": {
+        "$ref": "FlowMeasureValue.schema.json"
+      },
+      "description": "Array of all preferred measure values for this time period, each with optional attribute breakdown"
+    },
+    "modelAttributes": {
+      "$ref": "FlowModelAttributes.schema.json",
+      "description": "Model attributes — contextual metadata from the data model hierarchy. Omitted when no model attributes exist."
+    }
+  },
+  "required": ["$namespace", "measure", "timePeriod", "values"]
+}
